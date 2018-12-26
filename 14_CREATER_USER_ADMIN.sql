@@ -46,3 +46,11 @@ where table_owner='SYS' and synonym_name NOT LIKE '%$%';
 
 select 'create or replace public synonym '||view_name||' for '||owner||'.'||view_name||' ;' from dba_views
 where owner = 'SYS' and (owner NOT LIKE '%$%' OR view_name NOT LIKE '%$%') ; 
+
+
+--批量收回用户对象权限，收回用户chenmh在架构zhang下的所有权限
+SELECT 'REVOKE '||PRIVILEGE||' ON '||OWNER||'.'||TABLE_NAME||' FROM CHENMH;' FROM DBA_Tab_Privs WHERE GRANTEE='CHENMH' AND OWNER='ZHANG'
+ORDER BY TABLE_NAME,PRIVILEGE;
+
+--批量收回角色权限
+SELECT 'REVOKE '||GRANTED_ROLE||' FROM CHENMH;' FROM DBA_ROLE_PRIVS WHERE GRANTEE='CHENMH';

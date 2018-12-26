@@ -17,3 +17,4 @@ SET AUTOTRACE ON;     --EXPLAIN：AUTOTRACE只显示优化器执行路径报告
 SET AUTOTRACE ON;    --STATISTICS：只显示执行统计信息
 SET AUTOTRACE ON;  -- 包含执行计划和统计信息
 SET AUTOTRACE TRACEONLY;  --同SET AUTOTRACE ON，但是不显示查询输出 
+SET SERVEROUTPUT ON;    --使用函数dbms_output.put_line()可以输出参数的值
