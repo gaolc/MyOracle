@@ -1,3 +1,8 @@
+-- mkdir -p /home/oracle/dbUpdate/1.9.8.0
+-- sqlplus  / as sysdba
+-- create directory TS_198 as '/home/oracle/dbupdate/1.9.8.0';
+-- grant read,write on directory TS_198 to username;
+-- exec sp_insert_data ('V_name','insert_table_name','TS_198','export_filename.sql');
 create or replace procedure sp_insert_data(
 v_s_table varchar2,
 v_d_table varchar2,
@@ -86,3 +91,4 @@ begin
 
  end;
 /
+
